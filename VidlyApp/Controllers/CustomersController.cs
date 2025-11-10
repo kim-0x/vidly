@@ -1,24 +1,30 @@
-using System.Diagnostics;
+
 using Microsoft.AspNetCore.Mvc;
-using VidlyApp.Models;
+using Microsoft.EntityFrameworkCore;
+using VidlyApp.Data;
 
 namespace VidlyApp.Controllers;
 
 public class CustomersController : Controller
 {
-    private readonly IEnumerable<Customer> _customers = new List<Customer>
+    private ApplicationDbContext _context;
+
+    public CustomersController(ApplicationDbContext context)
     {
-        new Customer { Id = 1, Name = "John Smith" },
-        new Customer { Id = 2, Name = "Mary Williams" }
-    };
+        _context = context;
+    }
     public IActionResult Index()
     {
-        return View(_customers);
+        var customers = _context.Customers
+            .Include(c => c.MembershipType)
+            .ToList();
+        return View(customers);
     }
 
     public IActionResult Detail(int id)
     {
-        var customer = _customers.FirstOrDefault(c => c.Id == id);
+        var customer = _context.Customers.FirstOrDefault(c => c.Id == id);
+        
         if (customer == null)
             return NotFound();
         
