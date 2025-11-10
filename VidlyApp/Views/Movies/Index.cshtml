@@ -1,0 +1,11 @@
+@model IEnumerable<VidlyApp.Models.Movie>
+@{
+    ViewBag.Title = "Movies Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Movies</h2>
+<ul class="list-group">
+    @foreach(Movie movie in Model) {
+        <li class="list-group-item">@movie.Name</li>
+    }
+</ul>
