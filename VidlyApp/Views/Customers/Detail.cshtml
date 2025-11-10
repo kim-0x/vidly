@@ -4,3 +4,9 @@
 }
 
 <h2>@Model.Name</h2>
+<ul>
+    <li>Membershp Type: @Model.MembershipType?.Name</li>
+    @if (Model.Birthdate != null) {
+        <li>Birth Date: @Model.Birthdate?.ToString("dd/MM/yyyy")</li>
+    }
+</ul>
