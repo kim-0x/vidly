@@ -16,14 +16,19 @@
     </div>    
     <div class="form-group col-md-12 mb-3">
         @Html.LabelFor(m => m.MembershipTypeId)
-        @Html.DropDownListFor(m => m.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.DropDownListFor(m => m.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-select" })
     </div>
-    <div class="form-check col-md-12 mb-3">
-        @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter, new {  @class = "form-check-input pl-6", id="isSubscribedToNewsletter", type = "checkbox" })
-        <label class="form-check-label" for="isSubscribedToNewsletter">
-            Subscribed to Newsletter?
-        </label>
-    </div>
+    <div class="col-md-12 mb-3">
+        <div class="form-check">
+            @Html.CheckBoxFor(m => m.IsSubscribedToNewsletter, new {  @class = "form-check-input", id="isSubscribedToNewsletter", type = "checkbox" })
+            <label class="form-check-label" for="isSubscribedToNewsletter">
+                Subscribed to Newsletter?
+            </label>
+        </div>
+    </div>    
     @Html.HiddenFor(m => m.Id)
-    <button type="submit" class="btn btn-primary col-md-3">Save</button>
+    <div class="col-md-12 d-md-block">
+    <button type="submit" class="btn btn-primary">Save</button>
+    </div>
+    
 }
