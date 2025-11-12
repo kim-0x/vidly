@@ -40,7 +40,8 @@ public class CustomersController : Controller
         var membershipTypes = _context.MembershipType.ToList();
         var viewModel = new CustomerViewModel
         {
-            MembershipTypes = membershipTypes
+            MembershipTypes = membershipTypes,
+            FormTitle = "New Customer"
         };
         return View("Form", viewModel);
     }
@@ -86,7 +87,9 @@ public class CustomersController : Controller
             Birthdate = customer.Birthdate,
             IsSubscribedToNewsletter = customer.IsSubscribedToNewsletter,
             MembershipTypeId = customer.MembershipTypeId,
-            MembershipTypes = _context.MembershipType.ToList()
+            MembershipTypes = _context.MembershipType.ToList(),
+            Id = customer.Id,
+            FormTitle = "Edit Customer",
         };
 
         return View("Form", viewModel);

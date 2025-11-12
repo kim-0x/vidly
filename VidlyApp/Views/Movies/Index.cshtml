@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h2>Movies</h2>
+<a asp-controller="Movies" asp-action="New" class="btn btn-primary mb-3">New</a>
 <table class="table table-bordered">
     <thead>
         <th>Movie</th>
@@ -13,7 +14,7 @@
         @foreach(Movie movie in Model) {
             <tr>
                 <td>
-                    <a class="link-primary" asp-area="" asp-controller="Movies" asp-action="Detail" asp-route-id="@movie.Id">@movie.Name</a>
+                    <a class="link-primary" asp-area="" asp-controller="Movies" asp-action="Edit" asp-route-id="@movie.Id">@movie.Name</a>
                 </td>
                 <td>@movie.Genre?.Name</td>
             </tr>

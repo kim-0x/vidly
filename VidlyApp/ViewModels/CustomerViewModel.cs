@@ -13,4 +13,5 @@ public class CustomerViewModel
     [Display(Name = "Date of Birth")]
     public DateTime? Birthdate { get; set; }
     public bool IsSubscribedToNewsletter { get; set; }
+    public string FormTitle { get; set; } = string.Empty;
 }
