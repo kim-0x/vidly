@@ -3,7 +3,7 @@ using VidlyApp.Models;
 
 namespace VidlyApp.ViewModels;
 
-public class CustomerFormViewModel
+public class CustomerViewModel
 {
     public int Id { get; set; }
     [Display(Name = "Membership Type")]

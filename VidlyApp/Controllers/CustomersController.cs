@@ -38,7 +38,7 @@ public class CustomersController : Controller
     public IActionResult New()
     {
         var membershipTypes = _context.MembershipType.ToList();
-        var viewModel = new CustomerFormViewModel
+        var viewModel = new CustomerViewModel
         {
             MembershipTypes = membershipTypes
         };
@@ -47,7 +47,7 @@ public class CustomersController : Controller
 
 
     [HttpPost]
-    public IActionResult Create(CustomerFormViewModel viewModel)
+    public IActionResult Create(CustomerViewModel viewModel)
     {
         if (viewModel.Id > 0)
         {
@@ -80,7 +80,7 @@ public class CustomersController : Controller
         if (customer == null)
             return NotFound();
 
-        var viewModel = new CustomerFormViewModel
+        var viewModel = new CustomerViewModel
         {
             Name = customer.Name,
             Birthdate = customer.Birthdate,
